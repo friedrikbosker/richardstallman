@@ -1,0 +1,10 @@
+#Bronnen Informatie:
+#docs.saltstack.com/en/latest/topics/installation.ubuntu.html
+
+#!/bin/bash
+sudo apt-get install salt-master
+
+sudo salt-master
+
+sudo salt-key -F master
+
