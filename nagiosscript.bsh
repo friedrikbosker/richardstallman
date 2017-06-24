@@ -26,4 +26,8 @@ sudo make install-init
 sudo make install-config
 sudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
 
-rm -y nagios-4.3.2.tar.gz
+sudo rm -y nagios-4.3.2.tar.gz
+
+sudo mkdir /usr/local/nagios/etc/servers
+#in /usr/local/nagios/etc/nagios.conf moet deze dir handmatig worden ge-uncomment.
+
