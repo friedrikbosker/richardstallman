@@ -1,0 +1,29 @@
+#Bronnen informatie:
+#help.ubuntu.com/lts/serverguide/nagios.html
+#howtoforge.com/tutorial/ubunuty-nagios/
+#digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04
+#support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source.html
+#www.nagios.org/downloads/nagios-core/thanks/
+
+#!/bin/bash
+sudo useradd nagios
+sudo groupadd nagcmd
+sudo usermod -a -G nagcmd nagios
+
+sudo apt-get update
+sudo apt-get install -y wget build-essential apache2 php apache2-mod-php7.0 php-gd libgd.dev sendmail unzip
+
+wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.2.tar.gz
+tar -xzf nagios-4.3.2.tar.gz
+cd nagios-4.3.2
+
+sudo ./configure --with-nagios-group=nagios --with-command-group=nagcmd
+
+sudo make all
+sudo make install
+sudo make install-commandmode
+sudo make install-init
+sudo make install-config
+sudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
+
+rm -y nagios-4.3.2.tar.gz
