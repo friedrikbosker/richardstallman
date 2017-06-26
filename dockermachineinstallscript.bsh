@@ -1,0 +1,12 @@
+#Bronnen informatie:
+#docs.docker.com/machine/install-machine/
+#stackoverflow.com/questions/38433037/permission-denied-while-installing-docker-machine-in-ubuntu
+
+#!/bin/bash
+
+sudo -i
+curl -L https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
+
+chmod +x /usr/local/bin/docker-machine
+
+docker-machine version
