@@ -1,0 +1,10 @@
+#Bronnen informatie:
+#https://docs.docker.com/compose/install/
+#https://forums.docker.com/t/permission-denied-when-trying-to-install-compose-on-ubuntu/1034/7
+
+#!/bin/bash
+
+curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
