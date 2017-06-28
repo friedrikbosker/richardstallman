@@ -34,4 +34,4 @@ sudo mkdir /usr/local/nagios/etc/servers
 
 sudo apt-get install nagios-nrpe-server nagios-plugins
 
-systemctl enable nagios
+sudo systemctl enable nagios
