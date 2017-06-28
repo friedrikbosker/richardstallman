@@ -4,9 +4,8 @@
 
 #!/bin/bash
 
-sudo -i
-curl -L https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
 
-chmod +x /usr/local/bin/docker-machine
+sudo curl -L https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine &&
+sudo chmod +x /usr/local/bin/docker-machine
 
-docker-machine version
+sudo docker-machine version
