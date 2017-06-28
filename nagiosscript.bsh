@@ -4,6 +4,7 @@
 #digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04
 #support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source.html
 #www.nagios.org/downloads/nagios-core/thanks/
+#tecadmin.net/install-nrpe-on-ubuntu/
 
 #!/bin/bash
 sudo useradd nagios
@@ -31,5 +32,6 @@ sudo rm -y nagios-4.3.2.tar.gz
 sudo mkdir /usr/local/nagios/etc/servers
 #in /usr/local/nagios/etc/nagios.conf moet deze dir handmatig worden ge-uncomment.
 
+sudo apt-get install nagios-nrpe-server nagios-plugins
 
 systemctl enable nagios
