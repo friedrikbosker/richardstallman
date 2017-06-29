@@ -1,0 +1,28 @@
+#Bronnen informatie:
+#www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04
+#tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-5.html
+#ryanstutorials.net/bash-scripting-tutorial/bash-input.php
+
+#!/bin/bash
+echo "Enter Hostname:"
+read hostname
+echo "Enter Alias:"
+read alias
+echo "Enter Private IP Address:"
+read ip
+
+touch /usr/local/nagios/etc/servers/$hostname.cfg
+cd /usr/local/nagios/etc/servers
+
+sudo echo "define host {" >> $hostname.cfg
+sudo echo "		use			linux-server" >> $hostname.cfg
+sudo echo "		host_name		$hostname" >> $hostname.cfg
+sudo echo "		alias			$alias" >> $hostname.cfg
+sudo echo "		address			$ip" >> $hostname.cfg
+sudo echo "		max_check_attempts	5" >> $hostname.cfg
+sudo echo "		check_period		24x7" >> $hostname.cfg
+sudo echo "		notification_interval	30" >> $hostname.cfg
+sudo echo "		notification_period	24x7" >> $hostname.cfg
+sudo echo "}" >> $hostname.cfg
+
+sudo service nagios reload
