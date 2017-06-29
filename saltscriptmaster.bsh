@@ -2,7 +2,9 @@
 #docs.saltstack.com/en/latest/topics/installation.ubuntu.html
 
 #!/bin/bash
-sudo apt-get install salt-master
+sudo apt-get install -y salt-master
+
+sudo service salt-master restart
 
 sudo salt-master
 
