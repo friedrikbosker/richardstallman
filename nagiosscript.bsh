@@ -14,7 +14,7 @@ sudo usermod -a -G nagcmd nagios
 sudo apt-get update
 sudo apt-get install -y wget build-essential apache2 php apache2-mod-php7.0 php-gd libgd.dev sendmail unzip
 
-wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.2.tar.gz
+sudo wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.2.tar.gz
 tar -xzf nagios-4.3.2.tar.gz
 cd nagios-4.3.2
 
@@ -30,8 +30,8 @@ sudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-avai
 sudo rm -y nagios-4.3.2.tar.gz
 
 sudo mkdir /usr/local/nagios/etc/servers
-#in /usr/local/nagios/etc/nagios.conf moet deze dir handmatig worden ge-uncomment.
+sudo sed -i -e 's|#cfg_dir=/usr/local/nagios/etc/servers|cfg_dir=/usr/local/nagios/etc/servers|g' nagios.cfg
 
-sudo apt-get install nagios-nrpe-server nagios-plugins
+sudo apt-get install -y nagios-nrpe-server nagios-plugins
 
 sudo systemctl enable nagios

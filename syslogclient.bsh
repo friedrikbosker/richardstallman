@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo systemctl unmask rsyslog service
+sudo service rsyslog restart
+
+cd /etc
+sudo echo '"." @10.2.0.11' >> syslog.conf
