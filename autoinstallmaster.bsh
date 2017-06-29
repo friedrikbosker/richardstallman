@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo bash syslogserver.bsh
+sudo bash saltscriptmaster.bsh
+sudo bash nagiosscript.bsh
+sudo bash dockerscript.bsh
+sudo bash dockermachineinstallscript.bsh
+
+echo "Master Installation Completed"
+

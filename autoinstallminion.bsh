@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo bash syslogclient
+sudo bash nagiosagentscript.bsh
+sudo dockerscript.bsh
+sudo dockercomposescript.bsh
+
+echo "Minion Installation Completed"
