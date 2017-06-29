@@ -59,6 +59,8 @@ sudo sed -i -e 's|#cfg_dir=/usr/local/nagios/etc/servers|cfg_dir=/usr/local/nagi
 sudo a2enmod rewrite
 sudo a2enmod cgi
 
+sudo htpasswd -c -b /usr/local/nagios/etc/htpasswd.users nagiosadmin admin
+
 sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
 sudo ln -s /etc/init.d/nagios /etc/rcS.d/S99nagios
 
