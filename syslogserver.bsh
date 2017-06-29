@@ -1,10 +1,12 @@
 #!/bin/bash
 
 sudo systemctl unmask rsyslog service
-sudo service rsyslog restart
+
+sudo ufw allow 514/tcp
 
 cd /etc
-sudo sed -i -e 's|#module(load="imudp")|module(load="imudp")|g' rsyslog.conf
-sudo sed -i -e 's|#input(type="imudp" port="514")|input(type="imudp" port="514")|g' rsyslog.conf
-sudo sed -i -e 's|#module(load="imtcp")|module(load="imtcp")|g' rsyslog.conf
-sudo sed -i -e 's|#input(type="imtcp" port="514")|input(type="imtcp" port="514")|g' rsyslog.cnof
+sudo sed -i -e 's|#module(load="imudp")|$module(load="imudp")|g' rsyslog.conf
+sudo sed -i -e 's|#input(type="imudp" port="514")|$input(type="imudp" port="514")|g' rsyslog.conf
+sudo sed -i -e 's|#module(load="imtcp")|$module(load="imtcp")|g' rsyslog.conf
+sudo sed -i -e 's|#input(type="imtcp" port="514")|$input(type="imtcp" port="514")|g' rsyslog.conf
+sudo service rsyslog restart
