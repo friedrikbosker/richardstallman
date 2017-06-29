@@ -1,5 +1,0 @@
-#!/bin/bash
-
-systemctl unmask rsyslog service
-service rsyslog restart
-
