@@ -1,0 +1,13 @@
+#Bronnen informatie:
+#www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-14-04
+
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get install nagios-plugins nagios-nrpe-server
+
+cd /etc/nagios
+sudo sed -i -e 's|allowed_hosts=127.0.0.1|allowed_hosts=127.0.0.1,10.11.0.2|g' nrpe.cfg
+
+sudo service nagios-nrpe-server restart
+
